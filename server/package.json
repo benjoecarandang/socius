@@ -4,10 +4,11 @@
   "description": "Social media back-end project",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
     "watch": "nodemon index",
     "seed": "node utils/seed",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "client": "cd ../client && npm run dev",
+    "start": "concurrently \"nodemon index.js\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,9 @@
     "jest": "^27.5.1",
     "mongoose": "^6.2.7",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "dotenv": "^16.0.3"
   }
 }
